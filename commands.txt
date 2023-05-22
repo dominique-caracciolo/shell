@@ -1,0 +1,146 @@
+Job 1
+---------------------
+man ls
+ls -a 
+ls -l -a
+
+=====================
+
+Job 2
+---------------------
+sed -n  '1,10p' test.txt #Lis les lignes 1 a 10
+#Lis les 10 premieres lignes du fichier
+	head -10 test.txt
+	
+#Lis les 10 dernieres lignes du fichier
+	tail -10 test.txt 
+	
+#Lis les 20 dernieres lignes du fichier	
+	tail -20 test.txt 
+
+#Lis les 20 premieres lignes du fichier
+	head -20 test.txt 
+
+=====================
+
+Job 3 
+---------------------
+Installe Cmatrix:
+	sudo apt-get install cmatrix
+	
+Lance cmatrix:
+	cmatrix
+	
+Met a jour les package:
+	sudo apt update
+
+
+sudo apt (full-)upgrade
+
+wget https://www.google.com/
+
+Redemarre le serveur:
+	sudo reboot 
+
+Arrete le serveur avec le commentaire "Bye bye" (now est le temps avant arret):
+	sudo /sbin/shutdown -h now "Bye bye"
+
+=====================
+
+Job 4 
+---------------------
+Créer un fichier users.txt qui contiendra User1 et User2 séparé par un retour à la ligne :
+    Commande : echo -e "User1\nUser2" > users.txt
+
+Créer un groupe appelé “Plateformeurs” :
+    Commande : sudo groupadd Plateformeurs
+
+Créer un utilisateur appelé “User1” :
+    Commande : sudo useradd User1
+
+Créer un utilisateur appelé “User2” :
+    Commande : sudo useradd User2
+
+Ajouter “User2” au groupe Plateformeurs :
+    Commande : sudo usermod -a -G Plateformeurs User2
+
+Copier votre “users.txt” dans un fichier “droits.txt” :
+    Commande : cp users.txt droits.txt
+
+Copier votre “users.txt” dans un fichier “groupes.txt” :
+    Commande : cp users.txt groupes.txt
+
+Changer le propriétaire du fichier “droits.txt” pour mettre “User1” :
+    Commande : sudo chown User1 droits.txt
+
+Changer les droits du fichier “droits.txt” pour que “User2” ai accès seulement en lecture :
+    Commande : chmod 400 droits.txt
+
+Changer les droits du fichier “groupes.txt” pour que les utilisateurs puissent accéder au fichier en lecture uniquement :
+	Commande : chmod 444 groupes.txt
+
+Changer les droits du fichier pour que le groupe “Plateformeurs” puissent y accéder en lecture/écriture :
+	Commande : chmod 660 droits.txt
+		
+
+Job 5 
+---------------------
+Ajouter un alias qui permettra de lancer la commande “ls -la” en tapant “la” :
+	Commande : alias la='ls -la'
+Ajouter un alias qui permettra de lancer la commande “apt-get update” en tapant “update” :
+	Commande : alias update='sudo apt-get update'
+Ajouter un alias qui permettra de lancer la commande “apt-get upgrade” en tapant “upgrade” :
+	Commande : alias upgrade='sudo apt-get upgrade'
+Ajouter une variable d’environnement qui se nommera “USER” et qui sera égale à votre nom d’utilisateur :
+	Commande : export USER=$(whoami)
+Mettre à jour les modifications de votre bashrc dans votre shell actuel :
+	Commande : source ~/.bashrc
+Afficher les variables d’environnement :
+	Commande : printenv
+Ajouter à votre Path le chemin "/home/user/Bureau" :
+	Commande : export PATH=$PATH:/home/user/Bureau
+	
+Job 6
+---------------------
+Installer unzip
+	apt-get install unzip
+	apt update
+
+Telecharger le document
+	wget "Lien du chemin de telechargement"
+	
+unzip le fichier
+	unzip "nom du document".zip
+	
+	
+Job 7 
+----------------------
+echo "Je suis votre fichier texte" > une_commande.txt && cat /etc/apt/sources.list | wc -l > nb_lignes.txt && cat /etc/apt/sources.list > save_sources && find ~/ -name ".*" -type f -exec grep -i "alias" {} \;
+
+
+Bonus 
+----------------------
+Documentation des actions avec équivalents en ligne de commande Linux
+
+1. Installer la commande tree :
+   Commande : sudo apt install tree
+
+2. Lancer la commande tree en arrière-plan et enregistrer le résultat dans un fichier "tree.save" :
+   Commande : tree / > tree.save &
+
+3. Lister les éléments présents dans le dossier courant et compter le nombre d'éléments :
+   Commande : ls | wc -l
+
+4. Mettre à jour les paquets et lancer un upgrade si la mise à jour réussit :
+   Commande : sudo apt update && sudo apt upgrade
+
+   Explications :
+   - La commande "sudo apt update" met à jour la liste des paquets disponibles.
+   - Le symbole "&&" permet d'exécuter la commande suivante seulement si la commande précédente réussit.
+   - La commande "sudo apt upgrade" met à jour les paquets installés.
+
+   Si la mise à jour réussit, l'upgrade sera exécuté. Sinon, l'upgrade ne sera pas lancé.
+
+Voici la commande : 
+
+sudo apt-get install tree && tree / > tree.save & ls -1 | wc -l && sudo apt-get update && sudo apt-get upgrade
